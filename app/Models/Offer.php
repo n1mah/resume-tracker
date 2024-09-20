@@ -22,6 +22,9 @@ class Offer extends Model
         'benefits',
         'document_url',
         'application_url',
+        'is_visa_needed',
+        'is_authorized',
+        'is_living',
         'added_at'
     ];
 }
