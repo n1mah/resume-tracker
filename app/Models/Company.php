@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Company extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'city_id',
+        'center_office_city_id',
         'name',
         'website',
         'description',
@@ -17,4 +18,10 @@ class Company extends Model
         'application_source',
         'discovery_source',
     ];
+    public function city(): BelongsTo{
+        return $this->belongsTo(City::class);
+    }
+    public function offers(){
+        return $this->hasMany(Offer::class);
+    }
 }
