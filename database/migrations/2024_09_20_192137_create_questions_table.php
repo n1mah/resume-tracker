@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('apply_id')->constrained('applies');
+            $table->string('question');
+            $table->string('my_answer');
+            $table->integer('type');//hard , soft
             $table->timestamps();
         });
     }
