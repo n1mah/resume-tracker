@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\SkillOffer;
+namespace App\Http\Requests\OfferSkill;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSkillOfferRequest extends FormRequest
+class StoreOfferSkillRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

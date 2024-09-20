@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SkillOfferSeeder extends Seeder
+class OfferSkillSeeder extends Seeder
 {
     /**
      * Run the database seeds.
