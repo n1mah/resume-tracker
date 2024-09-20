@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('website')->nullable();
+            $table->text('description')->nullable();
+            $table->string('number')->nullable();
+            $table->string('application_source')->default('linkedin');
+            $table->string('discovery_source')->default('linkedin');
+            $table->foreignId('city_id')->constrained('cities');
             $table->timestamps();
         });
     }
