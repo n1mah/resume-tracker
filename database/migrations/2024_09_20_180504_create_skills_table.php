@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('type');//hard , soft
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
