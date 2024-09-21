@@ -10,6 +10,8 @@ export default function Register() {
         name: '',
         email: '',
         password: '',
+        firstname: '',
+        lastname: '',
         password_confirmation: '',
     });
 
@@ -58,6 +60,38 @@ export default function Register() {
                     />
 
                     <InputError message={errors.email} className="mt-2" />
+                </div>
+                <div className="mt-4">
+                    <InputLabel htmlFor="firstname" value="Firstname" />
+
+                    <TextInput
+                        id="firstname"
+                        type="text"
+                        name="firstname"
+                        value={data.firstname}
+                        className="mt-1 block w-full"
+                        autoComplete="firstname"
+                        onChange={(e) => setData('firstname', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.firstname} className="mt-2" />
+                </div>
+                <div className="mt-4">
+                    <InputLabel htmlFor="lastname" value="Lastname" />
+
+                    <TextInput
+                        id="lastname"
+                        type="text"
+                        name="lastname"
+                        value={data.lastname}
+                        className="mt-1 block w-full"
+                        autoComplete="lastname"
+                        onChange={(e) => setData('lastname', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.lastname} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
