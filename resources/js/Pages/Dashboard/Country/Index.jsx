@@ -34,22 +34,22 @@ function Index() {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr className="bg-white border-b  hover:bg-gray-50 ">
-                            <th scope="row"
-                                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                Iran
-                            </th>
-                            <td className="px-6 py-4">
-                                Asia
-                            </td>
-                            <td className="px-6 py-4">
-                                Persian
-                            </td>
-                            <td className="px-6 py-4 text-right">
-                                <a href="#"
-                                   className="font-medium text-blue-600  hover:underline">Edit</a>
-                            </td>
-                        </tr>
+                            <tr className="bg-white border-b  hover:bg-gray-50 ">
+                                <th scope="row"
+                                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                    Iran
+                                </th>
+                                <td className="px-6 py-4">
+                                    Asia
+                                </td>
+                                <td className="px-6 py-4">
+                                    Persian
+                                </td>
+                                <td className="px-6 py-4 text-right">
+                                    <a href="#"
+                                       className="font-medium text-blue-600  hover:underline">Edit</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
