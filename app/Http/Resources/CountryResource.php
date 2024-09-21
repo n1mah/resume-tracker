@@ -17,6 +17,7 @@ class CountryResource extends JsonResource
     {
         return [
             'id'=>$this->id,
+            'name'=>$this->name,
             'continent'=>$this->continent,
             'language'=>$this->language,
             'created_at'=>(new Carbon($this->created_at))->format('Y-m-d'),
