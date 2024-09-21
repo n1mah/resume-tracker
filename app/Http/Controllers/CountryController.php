@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Country\StoreCountryRequest;
 use App\Http\Requests\Country\UpdateCountryRequest;
 use App\Models\Country;
+use Inertia\Inertia;
 
 class CountryController extends Controller
 {
@@ -13,7 +14,10 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::all();
+        return Inertia::render('Dashboard/Country/Index',[
+            compact('countries')
+        ]);
     }
 
     /**
