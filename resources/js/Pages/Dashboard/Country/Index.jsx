@@ -2,13 +2,18 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.jsx";
 import { Head , Link } from '@inertiajs/react';
 import Pagination from "@/Components/Pagination.jsx";
 
-function Index({countries}) {
+function Index({countries,message}) {
     return (
         <AuthenticatedLayout
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Country</h2>}
         >
             <Head title="Country" />
 
+            {message &&
+                (<div className="w-9/12 mx-auto flex justify-between items-center my-5 py-2 px-5 text-center bg-gray-800 text-white rounded-2xl">
+                   <span>!</span> {message} <span>!</span>
+                </div>)
+            }
             <div className="w-9/12 mx-auto py-12">
 
                 <div className={'w-full my-4 px-1'}>
