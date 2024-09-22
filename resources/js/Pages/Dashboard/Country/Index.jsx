@@ -9,10 +9,10 @@ function Index({countries}) {
         >
             <Head title="Country" />
 
-            <div className="w-10/12 mx-auto py-12">
+            <div className="w-9/12 mx-auto py-12">
 
                 <div className={'w-full my-4 px-1'}>
-                    <button className={'px-3 py-1.5 bg-gray-800 text-white rounded-2xl'}>Add Country</button>
+                    <Link href={route('country.create')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}>Add Country</Link>
                 </div>
 
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
