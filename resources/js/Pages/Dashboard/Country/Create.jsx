@@ -6,7 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 
 function Create() {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, errors } = useForm({
         name: '',
         continent: '',
         language: '',
