@@ -1,5 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.jsx";
-import { Head } from '@inertiajs/react';
+import { Head , Link } from '@inertiajs/react';
+import Pagination from "@/Components/Pagination.jsx";
 
 function Index({countries}) {
     return (
@@ -17,7 +18,7 @@ function Index({countries}) {
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
                         <thead
-                            className="text-xs text-gray-700 uppercase bg-gray-300">
+                            className="text-xs text-white font-bold uppercase bg-gray-800">
                         <tr>
                             <th scope="col" className="px-6 py-5">
                                 Name
@@ -28,8 +29,8 @@ function Index({countries}) {
                             <th scope="col" className="px-6 py-5">
                                 Language
                             </th>
-                            <th scope="col" className="px-6 py-5">
-                                <span className="sr-only">Edit</span>
+                            <th scope="col" className="px-6 py-5 text-center">
+                                Actions
                             </th>
                         </tr>
                         </thead>
@@ -46,16 +47,19 @@ function Index({countries}) {
                                 <td className="px-6 py-4">
                                     {country.language}
                                 </td>
-                                <td className="px-6 py-4 text-right">
-                                    <a href="#"
-                                       className="font-medium text-blue-600  hover:underline">Edit</a>
+                                <td className="px-6 py-4 text-center">
+                                    <Link href={route('country.edit',  country.id)}
+                                       className="font-medium text-blue-600  hover:underline">Edit</Link>
                                 </td>
                             </tr>
                         ))}
                         </tbody>
                     </table>
-                </div>
+                    {countries && countries.meta && countries.meta.links.length>3 && countries.meta.links?
+                        <Pagination links={countries.meta.links} />
+                        :''}
 
+                </div>
             </div>
         </AuthenticatedLayout>
     );
