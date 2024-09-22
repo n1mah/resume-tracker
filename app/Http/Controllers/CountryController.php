@@ -15,7 +15,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::all();
+        $countries = Country::paginate(10)->onEachSide(2);
         return Inertia::render('Dashboard/Country/Index',[
             'countries'=>CountryResource::collection($countries)
         ]);
