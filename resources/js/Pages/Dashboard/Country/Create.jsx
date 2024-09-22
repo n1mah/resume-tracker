@@ -14,10 +14,7 @@ function Create() {
 
     const submit = (e) => {
         e.preventDefault();
-
-        post(route('country.store'), {
-            onFinish: () => {}
-        });
+        post(route('country.store'));
     };
     return (
         <AuthenticatedLayout
