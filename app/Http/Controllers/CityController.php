@@ -33,7 +33,8 @@ class CityController extends Controller
 
     public function store(StoreCityRequest $request)
     {
-        //
+        City::create($request->validated());
+        return to_route('city.index')->with(['message' => "City $request->name added successfully."]);
     }
 
     public function edit(City $city)

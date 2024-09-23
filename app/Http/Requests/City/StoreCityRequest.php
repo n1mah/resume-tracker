@@ -11,7 +11,7 @@ class StoreCityRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreCityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|min:3|unique:cities,name',
+            'country_id' => 'required|exists:countries,id',
+        ];
+    }
+    public function messages(): array{
+        return [
+            'country_id.required' => 'Country name is required.',
+            'country_id.exists' => 'Country name does not exist.',
         ];
     }
 }

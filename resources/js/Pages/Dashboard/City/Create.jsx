@@ -5,6 +5,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import SelectInput from "@/Components/SelectInput.jsx";
+import {useEffect} from "react";
 
 function Create({countries}) {
     const { data, setData, post, errors } = useForm({
@@ -16,6 +17,11 @@ function Create({countries}) {
         e.preventDefault();
         post(route('city.store'));
     };
+/*    useEffect(() => {
+        if (countries.data)
+            setData('country_id', countries.data[0].id);
+    }, countries);*/
+
     return (
         <AuthenticatedLayout
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('city.index')}>City</Link> -> create</h2>}
@@ -52,14 +58,17 @@ function Create({countries}) {
                             value={data.country_id}
                             className="mt-1 block w-full"
                             autoComplete="country_id"
+                            defaultValue={null}
+                            // defaultValue={countries.data[0].id}
                             onChange={(e) => setData('country_id', e.target.value)}
                             required
                         >
+                            <option>Select Country</option>
                             {countries && countries.data.map((country) => (
                                 <option key={country.id} value={country.id}>{country.name}</option>
                             ))}
                         </SelectInput>
-                        <InputError message={errors.name} className="mt-2"/>
+                        <InputError message={errors.country_id} className="mt-2"/>
                     </div>
 
                     <PrimaryButton className="w-11/12 mx-auto text-center flex justify-center items-center my-3 py-3">
