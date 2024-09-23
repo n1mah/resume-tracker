@@ -39,7 +39,11 @@ class CityController extends Controller
 
     public function edit(City $city)
     {
-        //
+        $countries = Country::all();
+        return Inertia::render('Dashboard/City/Edit',[
+            'city'=>new CityResource($city),
+            'countries'=>CountryResource::collection($countries),
+        ]);
     }
 
     public function update(UpdateCityRequest $request, City $city)
