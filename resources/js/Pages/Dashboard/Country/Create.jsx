@@ -26,10 +26,10 @@ function Create() {
                     <Link href={route('country.index')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}> {'<'} Countries</Link>
                 </div>
 
-                <form onSubmit={submit} method={'post'} className="w-full flex flex-col justify-start items-center  p-6">
+                <form onSubmit={submit} method={'post'} className="w-8/12 mx-auto rounded-2xl flex flex-col justify-start items-center bg-white my-3 p-6">
                     <h3 className={'w-full font-bold text-xl text-center mx-auto mb-6'}>Create Country</h3>
-                    <div className={'w-8/12 my-3'}>
-                        <InputLabel htmlFor="name" value="Name" />
+                    <div className={'w-11/12 my-3'}>
+                        <InputLabel htmlFor="name" value="Name"/>
 
                         <TextInput
                             id="name"
@@ -41,10 +41,10 @@ function Create() {
                             onChange={(e) => setData('name', e.target.value)}
                             required
                         />
-                        <InputError message={errors.name} className="mt-2" />
+                        <InputError message={errors.name} className="mt-2"/>
                     </div>
-                    <div className={'w-8/12 my-3'}>
-                        <InputLabel htmlFor="continent" value="Continent" />
+                    <div className={'w-11/12 my-3'}>
+                    <InputLabel htmlFor="continent" value="Continent" />
 
                         <TextInput
                             id="continent"
@@ -56,8 +56,8 @@ function Create() {
                         />
                         <InputError message={errors.continent} className="mt-2" />
                     </div>
-                    <div className={'w-8/12 my-3'}>
-                        <InputLabel htmlFor="language" value="Language" />
+                    <div className={'w-11/12 my-3'}>
+                        <InputLabel htmlFor="language" value="Language"/>
 
                         <TextInput
                             id="language"
@@ -67,9 +67,9 @@ function Create() {
                             autoComplete="language"
                             onChange={(e) => setData('language', e.target.value)}
                         />
-                        <InputError message={errors.language} className="mt-2" />
+                        <InputError message={errors.language} className="mt-2"/>
                     </div>
-                    <PrimaryButton className="w-8/12 mx-auto text-center flex justify-center items-center my-3 py-3">
+                    <PrimaryButton className="w-11/12 mx-auto text-center flex justify-center items-center my-3 py-3">
                         Create
                     </PrimaryButton>
                 </form>
