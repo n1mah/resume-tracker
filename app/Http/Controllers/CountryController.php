@@ -52,7 +52,10 @@ class CountryController extends Controller
      */
     public function edit(Country $country)
     {
-        //
+        return Inertia::render('Dashboard/Country/Edit',[
+            'country'=>new CountryResource($country)
+            ]);
+
     }
 
     /**
