@@ -6,16 +6,17 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 
 function Edit({country}) {
-    const { data, setData, post, errors } = useForm({
+    const { data, setData, put, errors } = useForm({
         id:country.data.id || '',
         name:country.data.name || '',
         continent:country.data.continent || '',
         language:country.data.language || '',
+        _method:'PUT'
     });
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('country.store'));
+        put(route('country.update',country.data.id));
     };
     return (
         <AuthenticatedLayout
@@ -27,7 +28,7 @@ function Edit({country}) {
                     <Link href={route('country.index')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}> {'<'} Countries</Link>
                 </div>
 
-                <form onSubmit={submit} method={'post'} className="w-8/12 mx-auto rounded-2xl flex flex-col justify-start items-center bg-white my-3 p-6">
+                <form onSubmit={submit} className="w-8/12 mx-auto rounded-2xl flex flex-col justify-start items-center bg-white my-3 p-6">
                     <h3 className={'w-full flex justify-center items-center font-bold text-xl text-center mx-auto mb-6'}>Edit Country - <span className={'inline-flex py-1.5 px-3 bg-gray-800/60 text-white ml-2 rounded'}> #{data.id} {data.name}</span></h3>
                     <div className={'w-11/12 my-3'}>
                         <InputLabel htmlFor="name" value="Name" />

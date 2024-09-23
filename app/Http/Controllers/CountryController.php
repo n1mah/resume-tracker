@@ -36,7 +36,7 @@ class CountryController extends Controller
     public function store(StoreCountryRequest $request)
     {
         Country::create($request->validated());
-        return to_route('country.index')->with(['message' => 'Country added successfully.']);
+        return to_route('country.index')->with(['message' => "Country $request->name added successfully."]);
     }
 
     /**
@@ -63,7 +63,8 @@ class CountryController extends Controller
      */
     public function update(UpdateCountryRequest $request, Country $country)
     {
-        //
+        $country->update($request->validated());
+        return to_route('country.index')->with(['message' => "Country $country->name updated successfully."]);
     }
 
     /**

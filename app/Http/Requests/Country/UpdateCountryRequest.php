@@ -11,7 +11,7 @@ class UpdateCountryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateCountryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|min:3|unique:countries,name,'.$this->id,
+            'continent' => 'nullable|string|min:3',
+            'language' => 'nullable|string|min:3',
         ];
     }
 }
