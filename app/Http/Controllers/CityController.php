@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\City\StoreCityRequest;
 use App\Http\Requests\City\UpdateCityRequest;
+use App\Http\Resources\CityResource;
 use App\Models\City;
+use Inertia\Inertia;
 
 class CityController extends Controller
 {
@@ -13,7 +15,11 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::paginate(10)->onEachSide(2);
+        return Inertia::render('Dashboard/City/Index',[
+            'cities'=>CityResource::collection($cities),
+            'message'=>session('message')
+        ]);
     }
 
     /**
