@@ -71,7 +71,7 @@ function Edit({country}) {
                         <InputError message={errors.language} className="mt-2" />
                     </div>
                     <PrimaryButton className="w-8/12 mx-auto text-center flex justify-center items-center my-3 py-3">
-                        Create
+                        Edit
                     </PrimaryButton>
                 </form>
             </div>
