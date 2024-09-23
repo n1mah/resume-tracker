@@ -48,7 +48,8 @@ class CityController extends Controller
 
     public function update(UpdateCityRequest $request, City $city)
     {
-        //
+        $city->update($request->validated());
+        return to_route('city.index')->with(['message' => "City $city->name updated successfully."]);
     }
 
 }
