@@ -50,7 +50,7 @@ function Create({countries}) {
                         <InputError message={errors.name} className="mt-2"/>
                     </div>
                     <div className={'w-11/12 my-3'}>
-                        <InputLabel htmlFor="name" value="Name"/>
+                        <InputLabel htmlFor="country_id" value="country_id"/>
 
                         <SelectInput
                             id="country_id"
