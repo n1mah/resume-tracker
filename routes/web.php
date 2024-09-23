@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {
-    Route::resource('country', CountryController::class);
+    Route::resource('country', CountryController::class)->except(['show', 'destroy']);;
 });
 
 require __DIR__.'/auth.php';
