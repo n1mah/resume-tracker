@@ -1,8 +1,14 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.jsx";
-import { Head , Link } from '@inertiajs/react';
+import {Head, Link, router} from '@inertiajs/react';
 import Pagination from "@/Components/Pagination.jsx";
 
 function Index({companies,message}) {
+    const deleteBtn = (company) => {
+        if (!confirm("Are you sure?")) {
+            return;
+        }
+        router.delete(route('company.destroy',company.id))
+    };
     return (
         <AuthenticatedLayout
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Company</h2>}
@@ -64,8 +70,8 @@ function Index({companies,message}) {
                                        className="font-medium text-blue-600  hover:underline mx-2">Show Details</Link>|
                                     <Link href={route('company.edit',  company.id)}
                                        className="font-medium text-blue-600  hover:underline mx-2">Edit</Link> |
-                                    <Link href={route('company.destroy',  company.id)}
-                                       className="font-medium text-blue-600  hover:underline mx-2">Delete</Link>
+                                        <button onClick={e => deleteBtn(company)}
+                                              className="font-medium text-blue-600 bg-red-600 hover:underline mx-2">Delete</button>
                                 </td>
                             </tr>
                         ))}

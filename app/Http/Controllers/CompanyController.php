@@ -60,6 +60,7 @@ class CompanyController extends Controller
 
     public function destroy(Company $company)
     {
-        //
+        $company->update(['is_active'=>0]);
+        return to_route('company.index')->with(['message' => "Company $company->name deleted successfully."]);
     }
 }
