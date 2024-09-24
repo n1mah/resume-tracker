@@ -38,12 +38,16 @@ class CompanyController extends Controller
 
     public function show(Company $company)
     {
-        //
+
     }
 
     public function edit(Company $company)
     {
-        //
+        $cities = City::all();
+        return Inertia::render('Dashboard/Company/Edit',[
+            'company'=>new CompanyResource($company),
+            'cities'=>CityResource::collection($cities),
+        ]);
     }
 
     public function update(UpdateCompanyRequest $request, Company $company)
