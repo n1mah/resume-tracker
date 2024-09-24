@@ -70,7 +70,7 @@ function Index({companies,message}) {
                                        className="font-medium text-blue-600  hover:underline mx-2">Show Details</Link>|
                                     <Link href={route('company.edit',  company.id)}
                                        className="font-medium text-blue-600  hover:underline mx-2">Edit</Link> |
-                                        <button onClick={e => deleteBtn(company)}
+                                        <button onClick={() => deleteBtn(company)}
                                               className="font-medium text-blue-600 bg-red-600 hover:underline mx-2">Delete</button>
                                 </td>
                             </tr>
