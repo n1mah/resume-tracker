@@ -11,7 +11,7 @@ class StoreCompanyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|min:3',
+            'website' => 'required|string',
+            'description' => 'nullable|string',
+            'center_office_city_id' => 'required|exists:cities,id',
+            'number' => 'required|string',
+            'application_source' => 'nullable|string',
+            'discovery_source' => 'nullable|string',
         ];
     }
+    public function messages(): array{
+        return [
+            'center_office_city_id.required' => 'Office is required.',
+            'center_office_city_id.exists' => 'Office does not exist.',
+        ];
+    }
+
 }

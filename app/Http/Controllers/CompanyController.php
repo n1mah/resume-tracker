@@ -32,7 +32,8 @@ class CompanyController extends Controller
 
     public function store(StoreCompanyRequest $request)
     {
-        //
+        Company::create($request->validated());
+        return to_route('company.index')->with(['message' => "Company $request->name added successfully."]);
     }
 
     public function show(Company $company)
