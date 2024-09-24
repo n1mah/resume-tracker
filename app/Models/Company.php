@@ -20,7 +20,7 @@ class Company extends Model
         'is_active',
     ];
     public function city(): BelongsTo{
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class, 'center_office_city_id');
     }
     public function offers(){
         return $this->hasMany(Offer::class);
