@@ -69,9 +69,9 @@ function Index({companies,message}) {
                                     <Link href={route('company.show',  company.id)}
                                        className="font-medium text-blue-600  hover:underline mx-2">Show Details</Link>|
                                     <Link href={route('company.edit',  company.id)}
-                                       className="font-medium text-blue-600  hover:underline mx-2">Edit</Link> |
+                                       className="font-medium text-orange-500Fix(structure): Company.Create bug fix  hover:underline mx-2">Edit</Link> |
                                         <button onClick={() => deleteBtn(company)}
-                                              className="font-medium text-blue-600 bg-red-600 hover:underline mx-2">Delete</button>
+                                              className="font-medium text-red-500  hover:underline mx-2">Delete</button>
                                 </td>
                             </tr>
                         ))}
