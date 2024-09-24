@@ -17,7 +17,8 @@ class Apply extends Model
         'status',//Enum
         'url',
         'feedback',
-        'applied_at'
+        'applied_at',
+        'is_active',
     ];
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);

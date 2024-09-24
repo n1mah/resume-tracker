@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('application_source')->default('linkedin');
             $table->string('discovery_source')->default('linkedin');
             $table->foreignId('center_office_city_id')->constrained('cities');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

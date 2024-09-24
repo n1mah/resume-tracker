@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('type');//hard , soft
             $table->text('description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

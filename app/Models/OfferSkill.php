@@ -12,6 +12,7 @@ class OfferSkill extends Model
     protected $fillable=[
         'offer_id',
         'skill_id',
-        'level'
+        'level',
+        'is_active'
     ];
 }

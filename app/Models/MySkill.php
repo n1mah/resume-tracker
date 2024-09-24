@@ -13,6 +13,7 @@ class MySkill extends Model
         'user_id',
         'skill_id',
         'level',
-        'years_of_experience'
+        'years_of_experience',
+        'is_active'
     ];
 }

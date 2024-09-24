@@ -13,7 +13,8 @@ class Question extends Model
         'apply_id',
         'title',
         'my_answer',
-        'type'//question_type:Skill,Public,...
+        'type',//question_type:Skill,Public,...
+        'is_active'
     ];
     public function apply(): BelongsTo{
         return $this->belongsTo(Apply::class);

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('skill_id')->constrained('skills');
             $table->foreignId('offer_id')->constrained('offers');
             $table->integer('level')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

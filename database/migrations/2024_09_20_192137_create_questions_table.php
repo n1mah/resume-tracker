@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('question');
             $table->string('my_answer');
             $table->integer('type');//hard , soft
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

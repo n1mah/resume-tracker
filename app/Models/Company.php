@@ -17,6 +17,7 @@ class Company extends Model
         'number', //Number of employees
         'application_source',
         'discovery_source',
+        'is_active',
     ];
     public function city(): BelongsTo{
         return $this->belongsTo(City::class);

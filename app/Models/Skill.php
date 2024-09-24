@@ -13,6 +13,7 @@ class Skill extends Model
         'title',
         'type',
         'description',
+        'is_active'
     ];
     public function users(): BelongsToMany{
         return $this->belongsToMany(User::class);

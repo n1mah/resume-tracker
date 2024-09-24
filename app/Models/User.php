@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
         'photo',
         'birthdate',
+        'is_active'
     ];
 
     public function skills():BelongsToMany

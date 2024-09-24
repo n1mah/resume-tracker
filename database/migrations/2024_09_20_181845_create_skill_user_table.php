@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->integer('level')->nullable();
             $table->integer('years_of_experience')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

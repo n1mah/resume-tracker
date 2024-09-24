@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('status')->default(1); //1=>applied , 2=>reject , 3=>next Level ,...
             $table->string('url')->nullable();
             $table->string('feedback')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamp('applied_at')->nullable();
             $table->timestamps();
         });
