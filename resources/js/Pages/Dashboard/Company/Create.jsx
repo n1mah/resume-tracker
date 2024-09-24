@@ -33,13 +33,11 @@ function Create({cities}) {
                 <div className={'w-full my-4 px-1'}>
                     <Link href={route('company.index')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}> {'<'} Company</Link>
                 </div>
-
                 <form onSubmit={submit} method={'post'}
                       className="w-8/12 mx-auto rounded-2xl flex flex-col justify-start items-center bg-white my-3 p-6">
                     <h3 className={'w-full font-bold text-xl text-center mx-auto mb-6'}>Create Company</h3>
                     <div className={'w-11/12 my-3'}>
                         <InputLabel htmlFor="name" value="Name"/>
-
                         <TextInput
                             id="name"
                             name="name"
@@ -61,7 +59,6 @@ function Create({cities}) {
                             value={data.website}
                             className="mt-1 block w-full"
                             autoComplete="website"
-                            isFocused={true}
                             onChange={(e) => setData('website', e.target.value)}
                             required
                         />
@@ -76,7 +73,6 @@ function Create({cities}) {
                             value={data.number}
                             className="mt-1 block w-full"
                             autoComplete="number"
-                            isFocused={true}
                             onChange={(e) => setData('number', e.target.value)}
                             required
                         />
@@ -91,7 +87,6 @@ function Create({cities}) {
                             value={data.application_source}
                             className="mt-1 block w-full"
                             autoComplete="application_source"
-                            isFocused={true}
                             onChange={(e) => setData('application_source', e.target.value)}
                             required
                         />
@@ -106,7 +101,6 @@ function Create({cities}) {
                             value={data.discovery_source}
                             className="mt-1 block w-full"
                             autoComplete="discovery_source"
-                            isFocused={true}
                             onChange={(e) => setData('discovery_source', e.target.value)}
                             required
                         />
@@ -121,7 +115,6 @@ function Create({cities}) {
                             className="mt-1 block w-full"
                             autoComplete="center_office_city_id"
                             defaultValue={null}
-                            // defaultValue={companies.data[0].id}
                             onChange={(e) => setData('center_office_city_id', e.target.value)}
                             required
                         >
@@ -142,7 +135,6 @@ function Create({cities}) {
                             value={data.description}
                             className="mt-1 block w-full"
                             autoComplete="description"
-                            isFocused={true}
                             onChange={(e) => setData('description', e.target.value)}
                         ></TextAreaInput>
                         <InputError message={errors.description} className="mt-2"/>
