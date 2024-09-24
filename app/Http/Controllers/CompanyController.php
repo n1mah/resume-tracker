@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Company\StoreCompanyRequest;
 use App\Http\Requests\Company\UpdateCompanyRequest;
+use App\Http\Resources\CityResource;
 use App\Http\Resources\CompanyResource;
+use App\Models\City;
 use App\Models\Company;
 use Inertia\Inertia;
 
@@ -22,7 +24,10 @@ class CompanyController extends Controller
 
     public function create()
     {
-        //
+        $cities = City::all();
+        return Inertia::render('Dashboard/Company/Create', [
+            'cities'=>CityResource::collection($cities),
+        ]);
     }
 
     public function store(StoreCompanyRequest $request)
