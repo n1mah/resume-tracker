@@ -5,7 +5,6 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import SelectInput from "@/Components/SelectInput.jsx";
-import {useEffect} from "react";
 import TextAreaInput from "@/Components/TextAreaInput.jsx";
 
 function Create({cities}) {
