@@ -16,4 +16,10 @@ class MySkill extends Model
         'years_of_experience',
         'is_active'
     ];
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function skill(){
+        return $this->belongsTo(Skill::class);
+    }
 }
