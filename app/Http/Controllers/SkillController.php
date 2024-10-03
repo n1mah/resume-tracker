@@ -47,7 +47,8 @@ class SkillController extends Controller
 
     public function update(UpdateSkillRequest $request, Skill $skill)
     {
-        //
+        $skill->update($request->validated());
+        return to_route('skill.index')->with(['message' => "Skill $skill->title updated successfully."]);
     }
 
 }
