@@ -37,7 +37,11 @@ class SkillController extends Controller
 
     public function edit(Skill $skill)
     {
-        //
+        $title='Skill';
+        return Inertia::render('Dashboard/Skill/Edit',[
+            'title'=>$title,
+            'skill'=>new SkillResource($skill),
+        ]);
     }
 
     public function update(UpdateSkillRequest $request, Skill $skill)
