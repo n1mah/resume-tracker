@@ -18,7 +18,7 @@ class SkillController extends Controller
         return Inertia::render('Dashboard/Skill/Index',[
             'skills'=>SkillResource::collection($skills),
             'message'=>session('message'),
-            'title'=>$title
+            'subject'=>$title
         ]);
     }
 
@@ -26,7 +26,7 @@ class SkillController extends Controller
     {
         $title='Skill';
         return Inertia::render('Dashboard/Skill/Create',[
-            'title'=>$title
+            'subject'=>$title
         ]);
     }
 
@@ -39,7 +39,7 @@ class SkillController extends Controller
     {
         $title='Skill';
         return Inertia::render('Dashboard/Skill/Edit',[
-            'title'=>$title,
+            'subject'=>$title,
             'skill'=>new SkillResource($skill),
         ]);
     }
