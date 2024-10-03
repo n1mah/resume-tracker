@@ -4,63 +4,42 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Skill\StoreSkillRequest;
 use App\Http\Requests\Skill\UpdateSkillRequest;
+use App\Http\Resources\SkillResource;
 use App\Models\Skill;
+use Inertia\Inertia;
 
 class SkillController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $title='Skill';
+        $skills = Skill::where('is_active',1)->paginate(10)->onEachSide(2);
+        return Inertia::render('Dashboard/Skill/Index',[
+            'skills'=>SkillResource::collection($skills),
+            'message'=>session('message'),
+            'title'=>$title
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreSkillRequest $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Skill $skill)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Skill $skill)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateSkillRequest $request, Skill $skill)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Skill $skill)
-    {
-        //
-    }
 }
