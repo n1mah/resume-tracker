@@ -7,7 +7,7 @@ import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import SelectInput from "@/Components/SelectInput.jsx";
 import TextAreaInput from "@/Components/TextAreaInput.jsx";
 
-function Edit({skill,title}) {
+function Edit({skill,subject}) {
     const { data, setData, put, errors } = useForm({
         id:skill.data.id || '',
         title:skill.data.title || '',
@@ -22,17 +22,17 @@ function Edit({skill,title}) {
     };
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('skill.index')}>{title}</Link> -> edit</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('skill.index')}>{subject}</Link> -> edit</h2>}
         >
-            <Head title={skill} />
+            <Head title={subject+' Edit'} />
             <div className="w-9/12 mx-auto py-12">
                 <div className={'w-full my-4 px-1'}>
-                    <Link href={route('skill.index')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}> {'<'} {title}s</Link>
+                    <Link href={route('skill.index')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}> {'<'} {subject}s</Link>
                 </div>
 
                 <form onSubmit={submit}
                       className="w-8/12 mx-auto rounded-2xl flex flex-col justify-start items-center bg-white my-3 p-6">
-                    <h3 className={'w-full flex justify-center items-center font-bold text-xl text-center mx-auto mb-6'}>Edit {title} - <span
+                    <h3 className={'w-full flex justify-center items-center font-bold text-xl text-center mx-auto mb-6'}>Edit {subject} - <span
                         className={'inline-flex py-1.5 px-3 bg-gray-800/60 text-white ml-2 rounded'}> #{data.id} {data.name}</span>
                     </h3>
                     <div className={'w-11/12 my-3'}>
