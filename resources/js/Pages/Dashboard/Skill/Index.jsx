@@ -2,12 +2,12 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.jsx";
 import { Head , Link } from '@inertiajs/react';
 import Pagination from "@/Components/Pagination.jsx";
 
-function Index({skills,message,title}) {
+function Index({skills,message,subject}) {
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">{title}</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">{subject}</h2>}
         >
-            <Head title={title} />
+            <Head title={subject} />
 
             {message &&
                 (<div className="w-9/12 mx-auto flex justify-between items-center my-5 py-2 px-5 text-center bg-gray-800 text-white rounded-2xl">
@@ -17,7 +17,7 @@ function Index({skills,message,title}) {
             <div className="w-9/12 mx-auto py-12">
 
                 <div className={'w-full my-4 px-1'}>
-                    <Link href={route('skill.create')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}>Add {title}</Link>
+                    <Link href={route('skill.create')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}>Add {subject}</Link>
                 </div>
 
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
