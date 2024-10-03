@@ -4,6 +4,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -25,6 +26,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('country', CountryController::class)->except(['show', 'destroy']);
     Route::resource('city', CityController::class)->except(['show', 'destroy']);
     Route::resource('company', CompanyController::class);
+    Route::resource('skill', SkillController::class)->except(['show', 'destroy']);
 });
 
 require __DIR__.'/auth.php';
