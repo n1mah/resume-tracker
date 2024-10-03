@@ -23,4 +23,9 @@ class Skill extends Model
     {
         return $this->belongsToMany(Offer::class);
     }
+
+    public function my_skills(): BelongsToMany
+    {
+        return $this->belongsToMany(MySkill::class);
+    }
 }
