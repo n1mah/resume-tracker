@@ -24,7 +24,10 @@ class SkillController extends Controller
 
     public function create()
     {
-        //
+        $title='Skill';
+        return Inertia::render('Dashboard/Skill/Create',[
+            'title'=>$title
+        ]);
     }
 
     public function store(StoreSkillRequest $request)
