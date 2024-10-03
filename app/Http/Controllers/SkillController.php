@@ -32,7 +32,8 @@ class SkillController extends Controller
 
     public function store(StoreSkillRequest $request)
     {
-        //
+        Skill::create($request->validated());
+        return to_route('skill.index')->with(['message' => "Skill $request->name added successfully."]);
     }
 
     public function edit(Skill $skill)
