@@ -3,6 +3,7 @@
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\MySkillController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('city', CityController::class)->except(['show', 'destroy']);
     Route::resource('company', CompanyController::class);
     Route::resource('skill', SkillController::class)->except(['show', 'destroy']);
+    Route::resource('my-skill', MySkillController::class)->except(['show', 'destroy']);
 });
 
 require __DIR__.'/auth.php';
