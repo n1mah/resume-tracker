@@ -11,7 +11,7 @@ class StoreMySkillRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreMySkillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'skill_id' => 'required|exists:skills,id|unique:skill_user,skill_id',
+            'level' => 'required|integer|between:1,10',
+            'experience'=>'nullable|integer|between:1,50',
         ];
     }
 }
