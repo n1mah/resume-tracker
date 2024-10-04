@@ -17,9 +17,10 @@ class MySkillResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'name'=>$this->name,
+            'skill'=>$this->skill->title,
             'user'=>$this->user_id,
-            'skill'=>$this->skill_id,
+            'level'=>$this->level,
+            'experience'=>$this->years_of_experience,
             'created_at'=>(new Carbon($this->created_at))->format('Y-m-d'),
             'updated_at'=>(new Carbon($this->created_at))->format('Y-m-d'),
         ];
