@@ -34,6 +34,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Skill::class);
     }
+    public function my_skills():BelongsToMany
+    {
+        return $this->belongsToMany(MySkill::class);
+    }
 
     public function offers():HasMany
     {
