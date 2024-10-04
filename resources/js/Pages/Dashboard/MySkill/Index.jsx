@@ -1,29 +1,22 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.jsx";
-import {Head, Link, router} from '@inertiajs/react';
-import Pagination from "@/Components/Pagination.jsx";
+import { Head , Link } from '@inertiajs/react';
 
-function Index({companies,message}) {
-    const deleteBtn = (company) => {
-        if (!confirm("Are you sure?")) {
-            return;
-        }
-        router.delete(route('company.destroy',company.id))
-    };
+function Index({my_skills,message,subject}) {
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Company</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">{subject}</h2>}
         >
-            <Head title="Company" />
+            <Head title={subject} />
 
             {message &&
                 (<div className="w-9/12 mx-auto flex justify-between items-center my-5 py-2 px-5 text-center bg-gray-800 text-white rounded-2xl">
-                   <span>!</span> {message} <span>!</span>
+                    <span>!</span> {message} <span>!</span>
                 </div>)
             }
             <div className="w-9/12 mx-auto py-12">
 
                 <div className={'w-full my-4 px-1'}>
-                    <Link href={route('company.create')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}>Add Company</Link>
+                    <Link href={route('my-skill.create')} className={'px-5 py-2 bg-gray-800 text-white rounded-2xl'}>Add {subject}</Link>
                 </div>
 
                 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -32,16 +25,13 @@ function Index({companies,message}) {
                             className="text-xs text-white font-bold uppercase bg-gray-800">
                         <tr>
                             <th scope="col" className="px-6 py-5">
-                                Name
+                                Skill
                             </th>
                             <th scope="col" className="px-6 py-5">
-                                Office
+                                Level
                             </th>
                             <th scope="col" className="px-6 py-5">
-                                discovery
-                            </th>
-                            <th scope="col" className="px-6 py-5">
-                                number
+                                Experience
                             </th>
                             <th scope="col" className="px-6 py-5 text-center">
                                 Actions
@@ -49,37 +39,26 @@ function Index({companies,message}) {
                         </tr>
                         </thead>
                         <tbody>
-                        {companies.data && companies.data.map((company) => (
+                        {my_skills?.data && my_skills.data.map((skill) => (
                             <tr className="bg-white border-b  hover:bg-gray-50 ">
                                 <th scope="row"
                                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                    {company.name}
+                                    {skill.skill}
                                 </th>
-
                                 <td className="px-6 py-4">
-                                    {company.city.name}
+                                    {skill.level}
                                 </td>
                                 <td className="px-6 py-4">
-                                    {company.discovery_source}
-                                </td>
-                                <td className="px-6 py-4">
-                                    {company.number}
+                                    {skill.experience}
                                 </td>
                                 <td className="px-6 py-4 text-center">
-                                    <Link href={route('company.show',  company.id)}
-                                       className="font-medium text-blue-600  hover:underline mx-2">Show Details</Link>|
-                                    <Link href={route('company.edit',  company.id)}
-                                       className="font-medium text-orange-500Fix(structure): Company.Create bug fix  hover:underline mx-2">Edit</Link> |
-                                        <button onClick={() => deleteBtn(company)}
-                                              className="font-medium text-red-500  hover:underline mx-2">Delete</button>
+                                    <Link href={route('my-skill.edit', skill.id)}
+                                          className="font-medium text-blue-600  hover:underline mx-2">Edit</Link>
                                 </td>
                             </tr>
                         ))}
                         </tbody>
                     </table>
-                    {companies && companies.meta && companies.meta.links.length>3 && companies.meta.links?
-                        <Pagination links={companies.meta.links} />
-                        :''}
 
                 </div>
             </div>
