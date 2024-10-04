@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MySkill\StoreMySkillRequest;
 use App\Http\Requests\MySkill\UpdateMySkillRequest;
+use App\Http\Resources\MySkillResource;
 use App\Models\MySkill;
 use Inertia\Inertia;
 
@@ -14,10 +15,14 @@ class MySkillController extends Controller
      */
     public function index()
     {
-        $my_skills = MySkill::where('is_active',1)->paginate(10)->onEachSide(2);
-        return Inertia::render('Dashboard/Company/Index',[
-            'companies'=>CompanyResource::collection($companies),
-            'message'=>session('message')
+        $title='My Skill';
+        $user=auth()->user();
+        $my_skills = MySkill::where('is_active',1)->where('user_id',$user->id)->paginate(10)->onEachSide(2);
+        return Inertia::render('Dashboard/MySkill/Index',[
+            'my_skills'=>MySkillResource::collection($my_skills),
+            'message'=>session('message'),
+            'subject'=>$title
+
         ]);
     }
 
