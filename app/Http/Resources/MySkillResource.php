@@ -17,7 +17,7 @@ class MySkillResource extends JsonResource
     {
         return [
             'id'=>$this->id,
-            'skill'=>$this->skill->title,
+            'skill'=>$this->skill,
             'user'=>$this->user_id,
             'level'=>$this->level,
             'experience'=>$this->years_of_experience,
