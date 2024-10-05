@@ -39,23 +39,23 @@ class MySkillController extends Controller
 
     public function store(StoreMySkillRequest $request)
     {
-
         MySkill::create([
             'user_id'=>auth()->id(),
             ...$request->validated(),
         ]);
         return to_route('my-skill.index')->with(['message' => "My Skill $request->name added successfully."]);
-
     }
 
-    public function show(MySkill $mySkill)
-    {
-        //
-    }
 
     public function edit(MySkill $mySkill)
     {
-        //
+        $title='My Skill';
+        $skills=Skill::all();
+        return Inertia::render('Dashboard/MySkill/Edit',[
+            'subject'=>$title,
+            'my_skill'=>new MySkillResource($mySkill),
+            'skills'=> SkillResource::collection($skills),
+        ]);
     }
 
     public function update(UpdateMySkillRequest $request, MySkill $mySkill)
