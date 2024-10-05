@@ -10,7 +10,7 @@ import TextAreaInput from "@/Components/TextAreaInput.jsx";
 function Edit({my_skill,subject,skills}) {
     const { data, setData, put, errors } = useForm({
         id: my_skill.data.id || '',
-        skill_id: my_skill.data.skill_id || '',
+        skill_id: my_skill.data.skill.id || '',
         level: my_skill.data.level || '',
         experience: my_skill.data.experience || '',
         _method:'PUT'
@@ -40,6 +40,7 @@ function Edit({my_skill,subject,skills}) {
                             name="skill_id"
                             value={data.skill_id}
                             className="mt-1 block w-full"
+                            defaultValue={my_skill.data.skill.id}
                             onChange={(e) => setData('skill_id', e.target.value)}
                             required
                         >
