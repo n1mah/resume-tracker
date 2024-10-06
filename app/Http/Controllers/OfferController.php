@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Offer\StoreOfferRequest;
 use App\Http\Requests\Offer\UpdateOfferRequest;
+use App\Http\Resources\OfferResource;
 use App\Models\Offer;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class OfferController extends Controller
 {
@@ -13,7 +16,13 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        $title='Offer';
+        $offers = Offer::where('is_active',1)->where('user_id',Auth::id())->paginate(10)->onEachSide(2);
+        return Inertia::render('Dashboard/Offer/Index',[
+            'offers'=>OfferResource::collection($offers),
+            'message'=>session('message'),
+            'subject'=>$title
+        ]);
     }
 
     /**
