@@ -60,7 +60,9 @@ class MySkillController extends Controller
 
     public function update(UpdateMySkillRequest $request, MySkill $mySkill)
     {
-        //
+        $mySkill->update($request->validated());
+        return to_route('my-skill.index')->with(['message' => "My Skill $mySkill->title updated successfully."]);
+
     }
 
     public function destroy(MySkill $mySkill)
