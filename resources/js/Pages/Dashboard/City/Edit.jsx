@@ -20,7 +20,7 @@ function Edit({city,countries}) {
     };
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('city.index')}>City</Link> -> edit</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('city.index')}>City</Link> {'->'} edit</h2>}
         >
             <Head title="City" />
             <div className="w-9/12 mx-auto py-12">

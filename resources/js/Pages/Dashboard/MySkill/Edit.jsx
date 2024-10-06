@@ -5,7 +5,6 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import SelectInput from "@/Components/SelectInput.jsx";
-import TextAreaInput from "@/Components/TextAreaInput.jsx";
 
 function Edit({my_skill,subject,skills}) {
     const { data, setData, put, errors } = useForm({
@@ -18,11 +17,11 @@ function Edit({my_skill,subject,skills}) {
 
     const submit = (e) => {
         e.preventDefault();
-        put(route('my-skill.update',skill.data.id));
+        put(route('my-skill.update',my_skill.data.id));
     };
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('my-skill.index')}>{subject}</Link> -> edit</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('my-skill.index')}>{subject}</Link> {'->'} edit</h2>}
         >
             <Head title={subject+' Edit'} />
             <div className="w-9/12 mx-auto py-12">

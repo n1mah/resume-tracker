@@ -18,7 +18,7 @@ function Create() {
     };
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('country.index')}>Country</Link> -> create</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('country.index')}>Country</Link> {'->'} create</h2>}
         >
             <Head title="Country" />
             <div className="w-9/12 mx-auto py-12">

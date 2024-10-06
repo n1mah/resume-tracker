@@ -20,7 +20,7 @@ function Create({subject}) {
     };
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('skill.index')}>{subject}</Link> -> create</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('skill.index')}>{subject}</Link> {'->'} create</h2>}
         >
             <Head title={subject+' Create'} />
             <div className="w-9/12 mx-auto py-12">

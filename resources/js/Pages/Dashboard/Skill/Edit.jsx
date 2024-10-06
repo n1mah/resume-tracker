@@ -22,7 +22,7 @@ function Edit({skill,subject}) {
     };
     return (
         <AuthenticatedLayout
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('skill.index')}>{subject}</Link> -> edit</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight"><Link href={route('skill.index')}>{subject}</Link> {'->'} edit</h2>}
         >
             <Head title={subject+' Edit'} />
             <div className="w-9/12 mx-auto py-12">
