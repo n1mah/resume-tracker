@@ -41,6 +41,9 @@ export default function Authenticated({ header, children }) {
                                 <NavLink href={route('my-skill.index')} active={route().current('my-skill.index')}>
                                     My Skill
                                 </NavLink>
+                                <NavLink href={route('offer.index')} active={route().current('offer.index')}>
+                                    Offer
+                                </NavLink>
                             </div>
                         </div>
 
