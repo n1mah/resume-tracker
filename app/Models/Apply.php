@@ -24,6 +24,10 @@ class Apply extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function offer(): BelongsTo{
+        return $this->belongsTo(Offer::class);
+    }
+
     public function questions()
     {
         return $this->hasMany(Question::class);
