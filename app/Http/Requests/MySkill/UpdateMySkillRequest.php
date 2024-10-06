@@ -3,6 +3,8 @@
 namespace App\Http\Requests\MySkill;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use function Symfony\Component\Translation\t;
 
 class UpdateMySkillRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class UpdateMySkillRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,10 @@ class UpdateMySkillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'skill_id' => 'required|exists:skills,id|unique:skill_user,skill_id,'.$this->id,
+            'level' => 'required|integer|between:1,10',
+            'experience'=>'nullable|integer|between:1,50',
         ];
+
     }
 }
