@@ -11,7 +11,7 @@ function Create({subject,skills}) {
     const { data, setData, post, errors } = useForm({
         skill_id: '',
         level: '',
-        experience: '',
+        years_of_experience: '',
     });
 
     const submit = (e) => {
@@ -65,18 +65,18 @@ function Create({subject,skills}) {
                         <InputError message={errors.level} className="mt-2"/>
                     </div>
                     <div className={'w-11/12 my-3'}>
-                        <InputLabel htmlFor="experience" value="Years of Experience"/>
+                        <InputLabel htmlFor="years_of_experience" value="Years of Experience"/>
                         <TextInput
-                            id="experience"
-                            name="experience"
-                            value={data.experience}
+                            id="years_of_experience"
+                            name="years_of_experience"
+                            value={data.years_of_experience}
                             type={'number'}
                             className="mt-1 block w-full"
-                            autoComplete="experience"
-                            onChange={(e) => setData('experience', e.target.value)}
+                            autoComplete="years_of_experience"
+                            onChange={(e) => setData('years_of_experience', e.target.value)}
                             required
                         />
-                        <InputError message={errors.experience} className="mt-2"/>
+                        <InputError message={errors.years_of_experience} className="mt-2"/>
                     </div>
                     <PrimaryButton className="w-11/12 mx-auto text-center flex justify-center items-center my-3 py-3">
                         Create
