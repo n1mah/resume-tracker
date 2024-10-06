@@ -26,7 +26,7 @@ class UpdateMySkillRequest extends FormRequest
         return [
             'skill_id' => 'required|exists:skills,id|unique:skill_user,skill_id,'.$this->id,
             'level' => 'required|integer|between:1,10',
-            'experience'=>'nullable|integer|between:1,50',
+            'years_of_experience'=>'nullable|integer|between:1,50',
         ];
 
     }
