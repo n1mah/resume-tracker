@@ -43,7 +43,7 @@ function Index({my_skills,message,subject}) {
                             <tr className="bg-white border-b  hover:bg-gray-50 ">
                                 <th scope="row"
                                     className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                    {skill.skill}
+                                    {skill.skill.title}
                                 </th>
                                 <td className="px-6 py-4">
                                     {skill.level}
