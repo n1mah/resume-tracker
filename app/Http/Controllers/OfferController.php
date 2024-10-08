@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Offer\StoreOfferRequest;
 use App\Http\Requests\Offer\UpdateOfferRequest;
+use App\Http\Resources\CompanyResource;
 use App\Http\Resources\OfferResource;
+use App\Http\Resources\SkillResource;
+use App\Models\City;
+use App\Models\Company;
 use App\Models\Offer;
+use App\Models\Skill;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -30,7 +35,16 @@ class OfferController extends Controller
      */
     public function create()
     {
-        //
+        $title='Offer';
+        $companies=Company::all();
+        $cities=City::all();
+        $skills=Skill::all();
+        return Inertia::render('Dashboard/Offer/Create',[
+            'subject'=>$title,
+            'skills'=> SkillResource::collection($skills),
+            'companies'=> CompanyResource::collection($companies),
+            'cities'=> CompanyResource::collection($cities),
+        ]);
     }
 
     /**
