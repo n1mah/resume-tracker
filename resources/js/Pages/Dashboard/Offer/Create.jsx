@@ -59,13 +59,32 @@ function Create({subject,skills,companies,cities}) {
                             onChange={(e) => setData('company_id', e.target.value)}
                             required
                         >
-                            <option>Select Skill</option>
+                            <option>Select Company</option>
                             {companies?.data && companies.data.map((company) => (
                                 <option key={company.id} value={company.id}>{company.name}</option>
                             ))}
                         </SelectInput>
 
                         <InputError message={errors.company_id} className="mt-2"/>
+                    </div>
+                    <div className={'w-11/12 my-3'}>
+                        <InputLabel htmlFor="city_id" value="Office (city)"/>
+                        <SelectInput
+                            id="city_id"
+                            name="city_id"
+                            value={data.city}
+                            className="mt-1 block w-full"
+                            defaultValue={null}
+                            onChange={(e) => setData('city_id', e.target.value)}
+                            required
+                        >
+                            <option>Select City</option>
+                            {cities?.data && cities.data.map((city) => (
+                                <option key={city.id} value={city.id}>{city.name}</option>
+                            ))}
+                        </SelectInput>
+
+                        <InputError message={errors.city_id} className="mt-2"/>
                     </div>
                     <div className={'w-11/12 my-3'}>
                         <InputLabel htmlFor="level" value="Level (1-10)"/>
