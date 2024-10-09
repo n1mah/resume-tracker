@@ -46,9 +46,26 @@ function Create({subject,skills,companies,cities}) {
                             ))}
                         </SelectMultipleInput>
 
-
-
                         <InputError message={errors.skill_id} className="mt-2"/>
+                    </div>
+                    <div className={'w-11/12 my-3'}>
+                        <InputLabel htmlFor="company_id" value="Company"/>
+                        <SelectInput
+                            id="company_id"
+                            name="company_id"
+                            value={data.company_id}
+                            className="mt-1 block w-full"
+                            defaultValue={null}
+                            onChange={(e) => setData('company_id', e.target.value)}
+                            required
+                        >
+                            <option>Select Skill</option>
+                            {companies?.data && companies.data.map((company) => (
+                                <option key={company.id} value={company.id}>{company.name}</option>
+                            ))}
+                        </SelectInput>
+
+                        <InputError message={errors.company_id} className="mt-2"/>
                     </div>
                     <div className={'w-11/12 my-3'}>
                         <InputLabel htmlFor="level" value="Level (1-10)"/>
