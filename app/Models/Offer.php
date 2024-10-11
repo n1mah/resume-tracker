@@ -28,6 +28,27 @@ class Offer extends Model
         'is_visa_needed',
         'is_authorized',
         'is_living',
-
+        'reference',
+        'added_at',
+        'is_active'
     ];
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class);
+    }
+    public function city(): BelongsTo{
+        return $this->belongsTo(City::class);
+    }
+    public function company(): BelongsTo{
+        return $this->belongsTo(Company::class);
+    }
+
+    public function apply():BelongsTo
+    {
+        return $this->belongsTo(Apply::class);
+    }
+
+    public function skills():belongsToMany
+    {
+        return $this->belongsToMany(Skill::class);
+    }
 }
