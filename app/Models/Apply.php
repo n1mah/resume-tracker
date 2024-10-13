@@ -14,7 +14,7 @@ class Apply extends Model
         'offer_id',
         'resume_doc',
         'resume_text',
-        'status',//Enum
+        'status', //Enum
         'url',
         'feedback',
         'applied_at',
