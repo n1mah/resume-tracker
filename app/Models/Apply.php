@@ -19,7 +19,6 @@ class Apply extends Model
         'feedback',
         'applied_at',
         'is_active',
-        'is_active',
     ];
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);
