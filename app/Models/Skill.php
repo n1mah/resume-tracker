@@ -9,7 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Skill extends Model
 {
     use HasFactory;
-
+    protected $fillable=[
+        'title',
+        'type',
+        'description',
+        'is_active'
+    ];
     public function users(): BelongsToMany{
         return $this->belongsToMany(User::class);
     }
